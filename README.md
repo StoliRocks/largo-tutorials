@@ -9,7 +9,8 @@ Practical, code-heavy implementations of ML concepts—embeddings, transformers,
 ### Embeddings
 - **[Sentence Embeddings from Scratch](embeddings/sentence-embeddings-from-scratch/)** — Build a BiLSTM sentence encoder with PyTorch. Covers tokenization, embedding layers, and pooling strategies.
 
-*More tutorials coming soon.*
+### Predictive Maintenance
+- **[Hard Drive Failure Prediction](predictive-maintenance/hard-drive-failure/)** — Predict drive failures using Backblaze data. Compares XGBoost, LSTM, and Transformer approaches.
 
 ## Setup
 
