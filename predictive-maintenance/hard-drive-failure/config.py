@@ -38,7 +38,7 @@ KEY_SMART_ATTRS = [
 ALL_SMART_ATTRS = [f"smart_{i}_raw" for i in range(256)]
 
 # Feature engineering
-SEQUENCE_LENGTH = 30  # Days of history for sequence models
+SEQUENCE_LENGTH = 3  # Days of history for sequence models
 PREDICTION_HORIZON = 7  # Predict failure within N days
 
 # Class imbalance handling

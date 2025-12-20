@@ -241,7 +241,7 @@ def train_lstm(X_train, y_train, X_val, y_val, X_test, y_test):
     # Optimizer
     optimizer = torch.optim.AdamW(model.parameters(), lr=LEARNING_RATE)
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-        optimizer, mode='max', factor=0.5, patience=3, verbose=True
+        optimizer, mode='max', factor=0.5, patience=3, 
     )
 
     # Training loop

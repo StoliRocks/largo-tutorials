@@ -29,12 +29,21 @@ import matplotlib.pyplot as plt
 from config import PROCESSED_DIR, MODELS_DIR, XGBOOST_PARAMS
 
 
-def load_data():
+def load_data(undersample_ratio=0.1):
     """Load preprocessed training data."""
     train = pd.read_parquet(PROCESSED_DIR / "train.parquet")
     val = pd.read_parquet(PROCESSED_DIR / "val.parquet")
     test = pd.read_parquet(PROCESSED_DIR / "test.parquet")
 
+    if undersample_ratio < 1.0:
+        # Keep all positive samples, undersample negatives  
+        train_pos = train[train["will_fail"] == 1]
+        train_neg = train[train["will_fail"] == 0].sample(
+            frac=undersample_ratio, random_state=42
+        )
+        train = pd.concat([train_pos, train_neg]).sample(frac=1, random_state=42)
+        print(f"Undersampled training: {len(train):,} samples ({len(train_pos):,} positive)")
+    
     return train, val, test
 
 
